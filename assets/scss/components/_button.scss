@@ -1,0 +1,37 @@
+.c-button {
+  position: relative;
+  padding: 1.5rem 3.7rem;
+  // background-color:#DC3284;
+  background-color: transparent;
+  border: 2px solid #DC3284;
+  text-transform: uppercase;
+  border-radius: 5rem;
+  // border: none;
+  color: white;
+  overflow: hidden;
+  z-index: -2;
+
+  &:hover {
+    color: black;
+
+    &::before {
+      transform: translateY(0);
+    }
+  }
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: #DC3284;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    border-radius: inherit;
+    transform: translateY(100%);
+    transition: transform 0.4s $ease-out-expo;
+    transform-origin: bottom;
+  }
+}
