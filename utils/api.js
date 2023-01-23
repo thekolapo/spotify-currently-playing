@@ -1,19 +1,8 @@
 import axios from 'axios'
 
-const baseUrl = ''
+const baseUrl = 'https://spotify-api-yx2r.onrender.com'
 
 export default {
-  fetchLastPlayedSong: () =>
-    axios.get(`${baseUrl}/{endpoint}`, {
-      params: {
-      
-      },
-    }),
-  fetchAccessToken: () =>
-    axios.get(`${baseUrl}/{endpoint}`, {
-      params: {
-       
-      },
-    }),
-  
+  fetchLastPlayedSong: () => 
+    axios.get(`${baseUrl}/currently-playing`),
 }
