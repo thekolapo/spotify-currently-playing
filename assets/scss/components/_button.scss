@@ -1,9 +1,7 @@
 .c-button {
   position: relative;
   padding: 1.4rem 2.8rem;
-  background-color:#DC3284;
-  background-color: rgb(0, 255, 213);
-  // border: 2px solid #DC3284;
+  background-color: var(--accent-color);
   text-transform: uppercase;
   border-radius: 5rem;
   border: none;

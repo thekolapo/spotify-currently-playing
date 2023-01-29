@@ -21,6 +21,6 @@ body {
   line-height: 2.2rem;
   overflow-x: hidden;
   color: $color-dark;
-  background-color: #692bd6;
+  background-color: var(--accent-color);
   text-transform: uppercase;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img class="home__background-img" src="" alt="song cover image" />
-    <div class="home__overlay">
+    <div ref="overlay" class="home__overlay">
       <div class="home__song-cover">
         <img
           ref="songCoverImage"
@@ -47,9 +47,9 @@ export default {
     }
   },
   mounted() {
-    if (process.browser) this.initImageDistortionEffect()
+    this.setAccentColor()
     this.initWebAudio()
-    this.getDominantImageColor(this.$refs.songCoverImage)
+    this.initImageDistortionEffect()
   },
   methods: {
     initImageDistortionEffect() {
@@ -128,17 +128,45 @@ export default {
         this.playState = 'Play'
       }
     },
-    getDominantImageColor(sourceImage) {
-      sourceImage.crossOrigin = 'Anonymous'
+    setAccentColor() {
+      const sourceImage = this.$refs.songCoverImage
 
+      const rgbToHex = (r, g, b) =>
+        `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`
+
+      const colorIsLight = (color) => {
+        const r = color[0]
+        const g = color[1]
+        const b = color[2]
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000
+        return brightness > 155
+      }
+
+      sourceImage.crossOrigin = 'Anonymous'
       sourceImage.onload = () => {
+        let selectedColor
+        let breakLoop = false
+
         const colorThief = new ColorThief()
-        const color = colorThief.getColor(sourceImage)
-        console.log(color)
+        const rgbColorPalette = colorThief.getPalette(sourceImage)
+
+        rgbColorPalette.forEach((color) => {
+          if (breakLoop) return
+
+          if (colorIsLight(color)) {
+            selectedColor = rgbToHex(color[0], color[1], color[2])
+            breakLoop = true
+          }
+        })
+
+        if (selectedColor)
+          document.documentElement.style.setProperty(
+            '--accent-color',
+            `${selectedColor}`
+          )
       }
     },
     visualizeAudio() {
-      // Set up audio context
       window.AudioContext = window.AudioContext || window.webkitAudioContext
       const audioContext = new AudioContext()
 
