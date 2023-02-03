@@ -8,9 +8,11 @@
   color: black;
   overflow: hidden;
   z-index: -2;
+  transition: transform 1.2s $ease-out-expo;
 
   &:hover {
     color: black;
+    transform: translateY(-5%);
 
     &::before {
       transform: translateY(0);

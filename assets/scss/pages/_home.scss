@@ -2,14 +2,6 @@
   position: relative;
   height: 100vh;
 
-  &__background-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
-    // object-position: top;
-  }
-
   &__canvas {
     position: absolute;
     top: 0;
@@ -20,7 +12,6 @@
   }
 
   &__overlay {
-    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,6 +28,15 @@
     padding: 0 3rem;
   }
 
+  &__song-details {
+    height: 92%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
   &__song-cover {
     $size: 35rem;
     max-width: $size;
@@ -49,7 +49,7 @@
   }
 
   &__song-title {
-    font-size: 2.6rem;
+    font-size: 2rem;
     line-height: 2.8rem;
     margin-top: 2.8rem;
     color: var(--accent-color);
@@ -63,9 +63,12 @@
   }
 
   &__credit {
-    position: absolute;
+    // font-family: 'VCR OSD Mono';
+    font-family: 'Apercu Mono';
+    // position: absolute;
     bottom: 2.6rem;
     padding: inherit;
+    text-transform: uppercase;
 
     a {
       color: var(--accent-color);
@@ -83,5 +86,26 @@
     pointer-events: none;
     transform: translateY(-50%);
     display: none;
+  }
+
+  &__wavy-line {
+    --stroke-dashoffset: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-70%);
+    width: 100%;
+    height: auto;
+    // stroke-width: 0.8;
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    transform-origin: center;
+    z-index: 3;
+
+    path {
+      stroke-dasharray: 1;
+      stroke-dashoffset: var(--stroke-dashoffset);
+      transition: 0.2s linear;
+      transform-origin: center;
+    }
   }
 }

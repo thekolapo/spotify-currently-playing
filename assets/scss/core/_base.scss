@@ -1,5 +1,5 @@
 html {
-  font-family: 	'VCR OSD Mono', 'Andale Mono', -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: 	'Apercu', -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	font-weight: 400;
   font-size: 62.5%;
   -ms-text-size-adjust: 100%;
@@ -22,5 +22,5 @@ body {
   overflow-x: hidden;
   color: $color-dark;
   background-color: var(--accent-color);
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
