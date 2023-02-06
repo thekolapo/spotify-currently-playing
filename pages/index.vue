@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div v-if="song" class="home">
     <div ref="overlay" class="home__overlay">
       <div class="home__song-details">
         <div class="home__song-cover">
@@ -17,7 +17,9 @@
       </div>
       <p class="home__credit">
         Made with love by
-        <a href="">Kolapo</a> & <a href="">Darasimi</a> 🌺 🌸
+        <a href="https://twitter.com/kolapo_" target="_blank">Kolapo</a> &
+        <a href="https://twitter.com/theDarasimi" target="_blank">Darasimi</a>
+        🌺 🌸
       </p>
       <!--prettier-ignore-->
       <svg ref="wavyLine" class="home__wavy-line" width="1440" height="122" viewBox="0 0 1440 122" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,8 +41,8 @@
       </svg>
     </div>
     <canvas class="home__canvas"></canvas>
-    <!-- <canvas class="home__audio-wave"></canvas> -->
     <about />
+    <loader ref="loader" />
   </div>
 </template>
 
@@ -49,32 +51,35 @@
 import ColorThief from 'colorthief'
 import api from '@/utils/api.js'
 import About from '~/components/About.vue'
+import Loader from '~/components/Loader.vue'
 
 export default {
-  components: { About },
-  async asyncData() {
-    try {
-      const { data } = await api.fetchCurrentlyPlaying()
-
-      return {
-        song: data,
-      }
-    } catch (error) {}
-  },
+  components: { About, Loader },
   data() {
     return {
       previewIsPlaying: false,
       audioElement: null,
-      playState: 'Preview song',
+      playState: 'Preview Song',
       songProgressAnimFrame: '',
+      song: null,
     }
   },
   mounted() {
-    this.setAccentColor()
-    this.initWebAudio()
-    this.initImageDistortionEffect()
+    this.fetchCurrentlyPlayingSong()
   },
   methods: {
+    async fetchCurrentlyPlayingSong() {
+      try {
+        const { data } = await api.fetchCurrentlyPlaying()
+        this.song = data
+
+        this.$nextTick(() => {
+          this.setAccentColor()
+          this.initWebAudio()
+          this.initImageDistortionEffect()
+        })
+      } catch (error) {}
+    },
     initImageDistortionEffect() {
       let app, image
 
@@ -89,6 +94,9 @@ export default {
           scale = app.screen.height / image.texture.height
         } else scale = app.screen.width / image.texture.width
         image.scale.set(scale)
+
+        // hide loader view
+        this.$refs.loader.hideLoader()
       }
 
       const initPixi = () => {
@@ -103,9 +111,9 @@ export default {
         const coverImageurl = this.song.album.images[0].url
         image = new PIXI.Sprite.from(coverImageurl)
 
-        // PIXI.Loader.shared
-        //   .add('song cover image', coverImageurl)
-        //   .load(setImageScale)
+        PIXI.Loader.shared
+          .add(this.song.name, coverImageurl)
+          .load(setImageScale)
 
         setImageScale()
 
