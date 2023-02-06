@@ -56,7 +56,7 @@ export default {
   mounted() {
     this.selectedQuote =
       this.quotes[Math.floor(Math.random() * this.quotes.length)]
-    this.animateLoaderText()
+    // this.animateLoaderText()
   },
   methods: {
     animateLoaderText() {
