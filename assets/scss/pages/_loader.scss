@@ -58,7 +58,7 @@
     transform: translateY(var(--translate-y));
     opacity: 0;
     // transition: transform 1.2s $ease-out-expo, opacity 1s linear;
-    animation: slide-up 1.2s $ease-out-expo 0.2s forwards, fade-in 1s linear 0.2s forwards;
+    animation: slide-up 1.2s $ease-out-expo 0.5s forwards, fade-in 1s linear 0.5s forwards;
 
     @media only screen and (min-width: 1681px) {
       --translate-y: 2.38vw;
@@ -94,7 +94,7 @@
       height: 100%;
       transform: translateY(var(--translate-y));
       // transition: 1.8s $ease-out-expo 0.3s;
-      animation: slide-up 1.8s $ease-out-expo 0.5s forwards;
+      animation: slide-up 1.8s $ease-out-expo 0.8s forwards;
     }
 
     &::after {

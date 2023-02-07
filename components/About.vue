@@ -2,10 +2,10 @@
   <div ref="about" class="about">
     <button ref="menuButton" class="about__menu-button">
       <!--prettier-ignore-->
-      <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="35" height="35" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<g filter="url(#filter0_d_124_12)">
-				<rect x="20" width="3" height="34" rx="1.5" fill="white"/>
-				<rect x="4" y="18" width="3" height="34" rx="1.5" transform="rotate(-90 4 18)" fill="white"/>
+				<rect x="20" width="2.4" height="34" rx="2" fill="white"/>
+				<rect x="4" y="18" width="2.4" height="34" rx="1.5" transform="rotate(-90 4 18)" fill="white"/>
 				</g>
 				<defs>
 				<filter id="filter0_d_124_12" x="0" y="0" width="42" height="42" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -83,7 +83,7 @@ export default {
         aboutView.style.setProperty('--background-scale', 0)
 
         setTimeout(() => {
-          aboutView.style.setProperty('--height', '10vh')
+          aboutView.style.setProperty('--height', '10rem')
         }, 300)
       }
 

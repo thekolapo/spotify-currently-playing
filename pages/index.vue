@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <template v-if="song">
-      <div ref="overlay" class="home__overlay">
+      <div ref="overlay" class="home__content-overlay">
         <div class="home__song-details">
           <div class="home__song-cover">
             <img
@@ -41,6 +41,7 @@
         </defs>
       </svg>
       </div>
+      <div class="home__blur-overlay" />
       <canvas class="home__canvas"></canvas>
       <about />
     </template>

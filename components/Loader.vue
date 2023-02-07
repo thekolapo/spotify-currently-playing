@@ -23,7 +23,7 @@ export default {
         },
         {
           quote:
-            'Music is nostalgic, You can relive a moment through music. That’s the power of music. 🌺 🌸',
+            'Music is nostalgic, you can relive a moment through music. That’s the power of music. 🌺 🌸',
           author: 'Kolapo Oni',
         },
         {
@@ -69,7 +69,7 @@ export default {
     hideLoader() {
       setTimeout(() => {
         this.$refs.loader.style.opacity = 0
-      }, 3000)
+      }, 2000)
     },
   },
 }
