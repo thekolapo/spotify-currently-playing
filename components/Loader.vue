@@ -69,7 +69,7 @@ export default {
     hideLoader() {
       setTimeout(() => {
         this.$refs.loader.style.opacity = 0
-      }, 2000)
+      }, 2500)
     },
   },
 }
