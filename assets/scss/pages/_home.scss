@@ -141,10 +141,11 @@
       padding: unset;
       padding-bottom: 4rem;
       font-size: 1.6rem;
-     }
+    }
 
     @media only screen and (max-width: 480px) {
      margin-top: 4rem;
+     padding-bottom: 0.5rem;
     }
 
     a {

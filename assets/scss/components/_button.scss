@@ -6,12 +6,16 @@
   border: none;
   color: black;
   overflow: hidden;
-  // z-index: ;
   transition: transform 1.2s $ease-out-expo;
 
   @media only screen and (min-width: 1681px) {
     padding: 0.8vw 1.7vw;
     border-radius: 3vw;
+  }
+
+  @include screen('small') {
+    font-size: 1.5rem;
+    padding: 1.2rem 2.4rem;
   }
 
   &:hover {
