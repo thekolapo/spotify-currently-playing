@@ -33,7 +33,7 @@
       opacity: 0.5;
 
       @include screen('small') {
-        opacity: 0.35;
+        opacity: 0.3;
       }
     }
   }
@@ -56,6 +56,10 @@
       display: block;
       padding: 4vw 2.2rem 0rem;
     }
+
+    @media only screen and (max-width: 480px) {
+      padding-top: 10rem;
+    }
   }
 
   &__song-details {
@@ -70,6 +74,10 @@
       height: auto;
       min-height: 90vh;
       padding-bottom: 4rem;
+    }
+
+    @media only screen and (max-width: 480px) {
+      min-height: unset;
     }
   }
 
@@ -123,13 +131,8 @@
   }
 
   &__credit {
-    // font-family: 'VCR OSD Mono';
-    // font-family: 'Apercu Mono';
-    // position: absolute;
-    // bottom: 2.6rem;
     padding: inherit;
     font-size: 1.8rem;
-    // text-transform: uppercase;
     text-align: center;
     z-index: 1;
 
@@ -137,7 +140,12 @@
       margin-top: auto;
       padding: unset;
       padding-bottom: 4rem;
+      font-size: 1.6rem;
      }
+
+    @media only screen and (max-width: 480px) {
+     margin-top: 4rem;
+    }
 
     a {
       color: var(--accent-color);
