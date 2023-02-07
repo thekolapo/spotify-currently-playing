@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div ref="home" class="home">
     <template v-if="song">
       <div ref="overlay" class="home__content-overlay">
         <div class="home__song-details">
@@ -68,6 +68,7 @@ export default {
     }
   },
   mounted() {
+    this.$refs.home.style.height = `${window.innerHeight}px`
     this.fetchCurrentlyPlayingSong()
   },
   methods: {
@@ -151,7 +152,7 @@ export default {
       // this.audioElement.muted = true
 
       this.audioElement.addEventListener('ended', () => {
-        this.playState = 'Play'
+        this.playState = 'Play song'
         cancelAnimationFrame(this.songProgressAnimFrame)
       })
 
@@ -160,11 +161,11 @@ export default {
     toggleAudio() {
       if (this.audioElement.paused) {
         this.audioElement.play()
-        this.playState = 'Pause'
+        this.playState = 'Pause song'
         this.handleProgressVisualizer()
       } else {
         this.audioElement.pause()
-        this.playState = 'Play'
+        this.playState = 'Play song'
         cancelAnimationFrame(this.songProgressAnimFrame)
       }
     },
