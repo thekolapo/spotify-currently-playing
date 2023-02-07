@@ -6,6 +6,7 @@
   border: none;
   color: black;
   overflow: hidden;
+  width: fit-content;
   transition: transform 1.2s $ease-out-expo;
 
   @media only screen and (min-width: 1681px) {
