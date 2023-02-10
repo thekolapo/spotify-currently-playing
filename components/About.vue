@@ -22,7 +22,7 @@
 			</svg>
     </button>
     <div ref="aboutContent" class="about__content">
-      <p>
+      <!-- <p>
         Hi, my name is Kolapo Oni. I'm a Designer & Developer based in Lagos,
         Nigeria. You can check out this link to see my portfolio webiste. This
         webiste is pretty much what I'm currently listening to on Spotify.
@@ -52,7 +52,7 @@
       <p>
         Music is nostalgic, You can relive a moment through music. That’s the
         power of music. 🌺 🌸
-      </p>
+      </p> -->
     </div>
   </div>
 </template>
