@@ -11,7 +11,11 @@
             />
           </div>
           <p class="home__song-title">{{ song.name }}</p>
-          <p class="home__song-artist">{{ song.artists[0].name }}</p>
+          <p class="home__song-artist">
+            <span v-for="(artist, index) in song.artists" :key="index">
+              {{ artist.name }}
+            </span>
+          </p>
           <button class="c-button" @click="toggleAudio()">
             {{ playState }}
           </button>
@@ -68,8 +72,14 @@ export default {
     }
   },
   mounted() {
-    this.$refs.home.style.height = `${window.innerHeight}px`
     this.fetchCurrentlyPlayingSong()
+
+    this.$refs.home.style.height = `${window.innerHeight}px`
+    window.addEventListener('resize', () => {
+      setTimeout(() => {
+        this.$refs.home.style.height = `${window.innerHeight}px`
+      }, 50)
+    })
   },
   methods: {
     async fetchCurrentlyPlayingSong() {
@@ -98,9 +108,6 @@ export default {
           scale = app.screen.height / image.texture.height
         } else scale = app.screen.width / image.texture.width
         image.scale.set(scale)
-
-        // hide loader view
-        this.$refs.loader.hideLoader()
       }
 
       const initPixi = () => {
@@ -204,6 +211,9 @@ export default {
             '--accent-color',
             `${selectedColor}`
           )
+
+        // hide loader view
+        this.$refs.loader.hideLoader()
       }
     },
     handleProgressVisualizer() {

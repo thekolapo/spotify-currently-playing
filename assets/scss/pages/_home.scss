@@ -1,6 +1,7 @@
 .home {
-  position: relative;
+  position: fixed;
   height: 100vh;
+  width: 100vw;
   overflow-x: hidden;
 
   &__canvas {
@@ -16,20 +17,21 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(28, 28, 28, 0.6);
     backdrop-filter: blur(15px);
 
     &::after {
       content: '';
-      position: absolute;
+      position: fixed;
       left:  0;
       top: 0;
       width: 100%;
       height: 100%;
       background-image: url('@/assets/images/noise.png');
       background-repeat: repeat;
+      background-size: cover;
       opacity: 0.5;
 
       @include screen('small') {
@@ -138,6 +140,30 @@
     font-size: 1.8rem;
     line-height: 2.5rem;
     margin: 1.2rem 0 2.2rem;
+    max-width: 50rem;
+    text-align: center;
+
+    @include screen('small') {
+      text-align: left;
+    }
+
+    span{
+      margin-right: 1px;
+      
+      &::after {
+        content: ',';
+        margin-left: 0;
+        padding-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+
+        &::after {
+          content: '';
+        }
+      }
+    }
 
     @media only screen and (min-width: 1681px) {
       font-size: 1.07vw;
@@ -160,7 +186,7 @@
       margin-top: auto;
       padding: unset;
       padding-bottom: 4rem;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
     }
 
     @media only screen and (max-width: 480px) {
@@ -192,8 +218,9 @@
     position: absolute;
     top: 50%;
     transform: translateY(-70%);
-    width: 100%;
+    width: 100vw;
     height: auto;
+    left: calc(-50vw + 50%);
     // stroke-width: 0.8;
     opacity: 0.5;
     background-repeat: no-repeat;
