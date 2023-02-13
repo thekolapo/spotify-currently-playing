@@ -10,7 +10,13 @@
               alt="song cover image"
             />
           </div>
-          <p class="home__song-title">{{ song.name }}</p>
+          <a
+            class="home__song-title c-link"
+            :href="song.album.external_urls.spotify"
+            target="_blank"
+          >
+            {{ song.name }}
+          </a>
           <p class="home__song-artist">
             <span v-for="(artist, index) in song.artists" :key="index">
               {{ artist.name }}
@@ -22,8 +28,16 @@
         </div>
         <p class="home__credit">
           Made with love by
-          <a href="https://twitter.com/kolapo_" target="_blank">Kolapo</a> &
-          <a href="https://twitter.com/theDarasimi" target="_blank">Darasimi</a>
+          <a class="c-link" href="https://twitter.com/kolapo_" target="_blank">
+            Kolapo
+          </a>
+          &
+          <a
+            class="c-link"
+            href="https://twitter.com/theDarasimi"
+            target="_blank"
+            >Darasimi</a
+          >
           🌺 🌸
         </p>
         <!--prettier-ignore-->

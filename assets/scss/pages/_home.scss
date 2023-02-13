@@ -121,7 +121,6 @@
     font-size: 2rem;
     line-height: 2.8rem;
     margin-top: 2.8rem;
-    color: var(--accent-color);
     text-align: center;
     max-width: 40rem;
 
@@ -152,8 +151,6 @@
       
       &::after {
         content: ',';
-        margin-left: 0;
-        padding-left: 0;
       }
 
       &:last-child {
@@ -194,11 +191,6 @@
      padding-bottom: 1.5rem;
      text-align: left;
     }
-
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
   }
 
   &__audio-wave {
@@ -221,11 +213,15 @@
     width: 100vw;
     height: auto;
     left: calc(-50vw + 50%);
-    // stroke-width: 0.8;
     opacity: 0.5;
     background-repeat: no-repeat;
     transform-origin: center;
     z-index: 3;
+
+    @include screen('small') {
+      stroke-width: 4;
+      transform: translateY(-100%);
+    }
 
     path {
       stroke-dasharray: 1;
