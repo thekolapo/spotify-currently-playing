@@ -10,7 +10,7 @@
   align-items: flex-start;
   flex-direction: column;
   overflow: hidden;
-  z-index: 5;
+  z-index: 4;
 
   &::before {
     content: '';
@@ -63,6 +63,10 @@
 
       @media only screen and (min-width: 1681px) {
         margin-bottom: 2.4vw;
+      }
+
+      @include screen ('small') {
+        margin-bottom: 3.3rem;
       }
     }
 
