@@ -1,7 +1,7 @@
 .about {
   --background-scale: 0;
   --height: 10rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: var(--height);
@@ -10,73 +10,106 @@
   align-items: flex-start;
   flex-direction: column;
   overflow: hidden;
+  z-index: 5;
 
   &::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(28, 28, 28, 0.7);
-    // background-image: url('@/assets/images/noise.png');
     backdrop-filter: blur(20px);
     z-index: 3;
     transform: scaleY(var(--background-scale));
     transform-origin: bottom;
     transition: 0.4s $ease-out-expo;
-    z-index: 4;
+    z-index: 1;
   }
 
   &__content {
     --transition-time: 1s;
     --translate-y: 15%;
     color: rgb(219, 219, 219);
-    z-index: 4;
-    // padding: 6rem 30rem;
+    z-index: 2;
     font-size: 2rem;
     line-height: 3.2rem;
-    // max-width: 80rem;
-    overflow: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     width: 100%;
     max-width: 70rem;
     margin: 0 auto;
+    padding: 0 2rem 3rem;
     font-weight: 300;
     opacity: 0;
     transform: translateY(var(--translate-y));
     transition: opacity var(--transition-time) linear 0.3s,
       transform calc(var(--transition-time) - 0.2s) $ease-out-expo 0.3s;
 
-    &::-webkit-scrollbar {
-      display: none;
+    @media only screen and (min-width: 1681px) {
+      font-size: 1.2vw;
+      line-height: 1.9vw;
+      max-width: 42vw;
     }
 
+    @include screen ('small') {
+      margin-top: -5rem;
+      font-size: 1.9rem;
+      line-height: 3rem;
+    }
+    
     p,
     form {
       margin-bottom: 4rem;
+
+      @media only screen and (min-width: 1681px) {
+        margin-bottom: 2.4vw;
+      }
     }
 
     form {
-      width: fit-content;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.6);
+      display: flex;
+      flex-wrap: wrap;
 
       input {
         background: transparent;
         outline: none;
         border: none;
-        width: 30rem;
+        width: 34rem;
+        height: auto;
         color: white;
+        border: 0.9px solid rgba(255, 255, 255, 0.6);
+        border-radius: 1rem;
+        padding: 1.2rem 0rem 1.2rem 2rem;
+        font-size: 1.9rem;
+
+        @media only screen and (min-width: 1681px) {
+          width: 18vw;
+          font-size: 1vw;
+        }
+      }
+
+      input[type='text'] {
+        height: 0;
+        width: 0;
+        opacity: 0;
       }
 
       button {
-        text-transform: uppercase;
-        background: transparent;
-        outline: none;
-        border: none;
-        color: var(--accent-color);
-        // font-weight: 500;
+        font-size: 1.6rem;
+        font-weight: normal;
+        border-radius: 1rem;
+        padding: 1rem 2.5rem;
+
+        @media only screen and (min-width: 1681px) {
+          font-size: 0.9vw;
+          padding: 0.6vw 1.5vw;
+        }
+
+        @include screen(small) {
+          width: 100%;
+          transform: translateY(-15%);
+          padding: 1.3rem 2.5rem;
+        }
       }
     }
   }
@@ -101,7 +134,7 @@
     }
 
     @include screen (small) {
-      margin: 3rem 2.2rem 0 auto;
+      margin: 3rem 1.6rem 0 auto;
 
       svg {
         $size: 3rem;
@@ -111,8 +144,12 @@
     }
 
     &:hover {
-      --rotation: -45deg;
       --background-scale: 1;
+      --rotation: -45deg;
+
+      @include screen (small) {
+        --rotation: 0deg;
+      }
     }
   }
 }

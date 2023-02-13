@@ -22,37 +22,57 @@
 			</svg>
     </button>
     <div ref="aboutContent" class="about__content">
-      <!-- <p>
-        Hi, my name is Kolapo Oni. I'm a Designer & Developer based in Lagos,
-        Nigeria. You can check out this link to see my portfolio webiste. This
-        webiste is pretty much what I'm currently listening to on Spotify.
+      <p>
+        Hi, my name is Kolapo Oni, and I’m a Designer & Developer based in
+        Lagos, Nigeria. You can learn more about me and my interests on my
+        <a href="" target="_blank" class="c-link">personal website</a>.
       </p>
       <p>
-        Besides this webiste representing what a place to see the music I'm
-        currently listening to. One of the reason I also create dit is for my
-        perisnal newsletter where I'll be sending out new songs/artists I
-        discover as well as my other interests mainly centered around
-        architecture, interior design, design, film and nice things I discover
-        on the internet.
+        This project was inspired by my love for music. It shows the song I’m
+        currently listening to on my
+        <a
+          href="https://open.spotify.com/user/22tlod5b4sujuk2jxfja6cjjy"
+          target="_blank"
+          class="c-link"
+        >
+          Spotify </a
+        >, so whenever you come here, I hope you relive a moment in time, or
+        find new sounds to create memories with.
       </p>
       <p>
-        I already have this thread on twitter where I post mainlky nice webistes
-        I discover and a few other interesting things. I also have this thread
-        where I post the bautiful pictures I take as photogrpahy for me is also
-        a form of self expresion. You can alkso checkout my VSCO
+        Music is an endless and dynamic experience. It’s why I created a
+        personal newsletter to extend your experience of this project beyond
+        here. The newsletter is a curation of all the things I love from music,
+        architecture, design, photography, and interesting things I find on the
+        internet.
       </p>
-      <form action="">
+      <p>
+        When you subscribe below to join my mailing list, you’ll receive a
+        beautifully curated newsletter in your inbox once in awhile, and I hope
+        you love.
+      </p>
+      <p>Love from Kolapo 🌺 🌸</p>
+      <form
+        id="mc-embedded-subscribe-form"
+        action="https://gmail.us6.list-manage.com/subscribe/post?u=b2f96832998fed0eaca1b2e39&amp;id=510bd8b63e"
+        method="post"
+        name="mc-embedded-subscribe-form"
+      >
         <input
+          id="mce-EMAIL"
+          name="EMAIL"
           type="email"
+          placeholder="I'll only send nice things, I promise."
           required
-          placeholder="I'll only send nice things. I promise."
         />
-        <button type="submit">Subscribe</button>
+        <input
+          id="mce-SOURCE"
+          name="SOURCE"
+          type="text"
+          value="personal music site"
+        />
+        <button class="c-button" type="submit">Subscribe</button>
       </form>
-      <p>
-        Music is nostalgic, You can relive a moment through music. That’s the
-        power of music. 🌺 🌸
-      </p> -->
     </div>
   </div>
 </template>
@@ -68,7 +88,7 @@ export default {
   methods: {
     handleAboutViewToggle() {
       let showMenu = false
-      const aboutView = document.querySelector('.about')
+      const aboutView = this.$refs.about
       const menuButton = this.$refs.menuButton
       const aboutContent = this.$refs.aboutContent
 
@@ -90,11 +110,13 @@ export default {
       const handleMouseClick = () => {
         showMenu = !showMenu
         if (!showMenu) {
+          aboutView.scrollTo({ top: 0, behavior: 'smooth' })
           aboutContent.style.visibility = 'hidden'
           aboutContent.style.opacity = 0
           aboutContent.style.setProperty('--translate-y', '15%')
           aboutView.style.setProperty('--background-scale', 0)
           menuButton.style.removeProperty('--rotation')
+          aboutView.style.overflow = 'hidden'
         } else {
           aboutContent.style.visibility = 'visible'
           aboutContent.style.opacity = 1
@@ -102,6 +124,7 @@ export default {
           aboutContent.style.setProperty('--translate-y', '10%')
           aboutView.style.setProperty('--background-scale', 1)
           menuButton.style.setProperty('--rotation', '-45deg')
+          aboutView.style.overflow = 'scroll'
         }
       }
 
