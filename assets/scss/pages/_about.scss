@@ -9,7 +9,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: scroll;
   z-index: 4;
 
   &::before {
@@ -38,7 +38,7 @@
     width: 100%;
     max-width: 70rem;
     margin: 0 auto;
-    padding: 0 2rem 3rem;
+    padding: 0 2rem 2rem;
     font-weight: 300;
     opacity: 0;
     transform: translateY(var(--translate-y));
