@@ -90,6 +90,10 @@
           width: 18vw;
           font-size: 1vw;
         }
+
+        @include screen ('small') {
+          width: 100%;
+        }
       }
 
       input[type='text'] {
