@@ -43,13 +43,13 @@
         Music is an endless and dynamic experience. It’s why I created a
         personal newsletter to extend your experience of this project beyond
         here. The newsletter is a curation of all the things I love from music,
-        architecture, design, photography, and interesting things I find on the
-        internet.
+        architecture, design, photography, history, and interesting things I
+        find on the internet.
       </p>
       <p>
         When you subscribe below to join my mailing list, you’ll receive a
-        beautifully curated newsletter in your inbox once in awhile, and I hope
-        you love.
+        beautifully curated newsletter in your inbox once in awhile, which I
+        hope you love.
       </p>
       <p>Love from Kolapo 🌺 🌸</p>
       <form
@@ -117,6 +117,7 @@ export default {
           aboutView.style.setProperty('--background-scale', 0)
           menuButton.style.removeProperty('--rotation')
           aboutView.style.overflow = 'hidden'
+          aboutContent.style.pointerEvents = 'none'
         } else {
           aboutContent.style.visibility = 'visible'
           aboutContent.style.opacity = 1
@@ -124,7 +125,8 @@ export default {
           aboutContent.style.setProperty('--translate-y', '10%')
           aboutView.style.setProperty('--background-scale', 1)
           menuButton.style.setProperty('--rotation', '-45deg')
-          aboutView.style.overflow = 'scroll'
+          aboutView.style.overflow = 'auto'
+          aboutContent.style.pointerEvents = 'auto'
         }
       }
 
