@@ -119,9 +119,9 @@ export default {
           menuButton.style.removeProperty('--rotation')
           aboutView.style.overflow = 'hidden'
           homeView.style.overflowY = 'auto'
-
           handleMouseLeave()
         } else {
+          handleMouseHover()
           aboutContent.style.visibility = 'visible'
           aboutContent.style.opacity = 1
           aboutContent.style.setProperty('--transition-time', '1s')

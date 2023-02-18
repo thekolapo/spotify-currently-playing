@@ -8,7 +8,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '',
+    title: 'The song Kolapo is listening to on Spotify',
     htmlAttrs: {
       lang: 'en',
     },
@@ -19,41 +19,39 @@ export default {
         name: "viewport",
         content: "width=device-width, initial-scale=1, shrink-to-fit=no",
       },
-      { name: 'keywords', content: '' },
+      { name: 'keywords', content: 'kolapo oni, kolapo oni music, kolapo music' },
       {
         hid: 'description',
         name: 'description',
-        content: "",
+        content: "This is a wee music project that shows the song I’m currently listening to on Spotify. You can also subscribe to my mailing list and you’ll receive a beautifully curated newsletter in your inbox every once in awhile, centred around music, history, design, architecture, photography, and interesting things I find on the internet.",
       },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: '' },
-      { hid: 'og:title', property: 'og:title', content: '' },
+      { hid: 'og:title', property: 'og:title', content:'The song Kolapo is listening to on Spotify' },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: '',
+        content: 'https://music.thekolapo.com/meta-image.png',
       },
       {
         hid: 'og:description',
         property: 'og:description',
-        content: "",
+        content: "This is a wee music project that shows the song I’m currently listening to on Spotify. You can also subscribe to my mailing list and you’ll receive a beautifully curated newsletter in your inbox every once in awhile, centred around music, history, design, architecture, photography, and interesting things I find on the internet. ",
       },
       { property: 'twitter:card', content: 'summary_large_image' },
-      { property: 'twitter:url', content: '' },
       {
         hid: 'twitter:title',
         property: 'twitter:title',
-        content: ''
+        content: 'The song Kolapo is listening to on Spotify'
       },
       {
         hid: 'twitter:description',
         property: 'twitter:description',
-        content: "",
+        content: "This is a wee music project that shows the song I’m currently listening to on Spotify. You can also subscribe to my mailing list and you’ll receive a beautifully curated newsletter in your inbox every once in awhile, centred around music, history, design, architecture, photography, and interesting things I find on the internet. ",
       },
       {
         hid: 'twitter:image',
         property: 'twitter:image',
-        content: '',
+        content: 'https://music.thekolapo.com/meta-image.png',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

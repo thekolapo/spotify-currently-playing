@@ -90,10 +90,14 @@ export default {
     this.$refs.home.style.height = `${window.innerHeight}px`
     const windowWidth = window.innerWidth
     window.addEventListener('resize', () => {
-      // setTimeout(() => {
-      //   this.$refs.home.style.height = `${window.innerHeight}px`
-      // }, 50)
-      if (window.innerWidth !== windowWidth) location.reload()
+      if (window.innerWidth !== windowWidth) {
+        location.reload()
+        return
+      }
+
+      setTimeout(() => {
+        this.$refs.home.style.height = `${window.innerHeight}px`
+      }, 50)
     })
   },
   methods: {
