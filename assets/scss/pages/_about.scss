@@ -9,7 +9,8 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  overflow-y: scroll;
+  // overflow-y: scroll;
+  overflow-y: auto;
   z-index: 4;
 
   &::before {
@@ -38,7 +39,7 @@
     width: 100%;
     max-width: 70rem;
     margin: 0 auto;
-    padding: 0 2rem 2rem;
+    padding: 0 2rem 8rem;
     font-weight: 300;
     opacity: 0;
     pointer-events: none;
