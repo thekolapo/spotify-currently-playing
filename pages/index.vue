@@ -87,12 +87,13 @@ export default {
   },
   mounted() {
     this.fetchCurrentlyPlayingSong()
-
     this.$refs.home.style.height = `${window.innerHeight}px`
+    const windowWidth = window.innerWidth
     window.addEventListener('resize', () => {
-      setTimeout(() => {
-        this.$refs.home.style.height = `${window.innerHeight}px`
-      }, 50)
+      // setTimeout(() => {
+      //   this.$refs.home.style.height = `${window.innerHeight}px`
+      // }, 50)
+      if (window.innerWidth !== windowWidth) location.reload()
     })
   },
   methods: {
@@ -119,9 +120,9 @@ export default {
         image.anchor.set(0.5)
 
         let scale = 1
-        if (image.texture.height < image.texture.width) {
-          scale = app.screen.height / image.texture.height
-        } else scale = app.screen.width / image.texture.width
+        if (window.innerHeight > window.innerWidth) {
+          scale = window.innerHeight / image.texture.height
+        } else scale = window.innerWidth / image.texture.width
         image.scale.set(scale)
       }
 
