@@ -87,20 +87,20 @@ export default {
   },
   methods: {
     handleAboutViewToggle() {
-      let showMenu = false
+      let showAboutView = false
       const aboutView = this.$refs.about
       const menuButton = this.$refs.menuButton
       const aboutContent = this.$refs.aboutContent
       const homeView = document.querySelector('.home')
 
       const handleMouseHover = () => {
-        if (showMenu) return
+        if (showAboutView) return
         aboutView.style.setProperty('--height', '100vh')
         aboutView.style.setProperty('--background-scale', 0.12)
       }
 
       const handleMouseLeave = () => {
-        if (showMenu) return
+        if (showAboutView) return
         aboutView.style.setProperty('--background-scale', 0)
 
         setTimeout(() => {
@@ -109,8 +109,8 @@ export default {
       }
 
       const handleMouseClick = () => {
-        showMenu = !showMenu
-        if (!showMenu) {
+        showAboutView = !showAboutView
+        if (!showAboutView) {
           aboutView.scrollTo({ top: 0, behavior: 'smooth' })
           aboutContent.style.visibility = 'hidden'
           aboutContent.style.opacity = 0
@@ -118,8 +118,9 @@ export default {
           aboutView.style.setProperty('--background-scale', 0)
           menuButton.style.removeProperty('--rotation')
           aboutView.style.overflow = 'hidden'
-          aboutContent.style.pointerEvents = 'none'
           homeView.style.overflowY = 'auto'
+
+          handleMouseLeave()
         } else {
           aboutContent.style.visibility = 'visible'
           aboutContent.style.opacity = 1
@@ -128,7 +129,6 @@ export default {
           aboutView.style.setProperty('--background-scale', 1)
           menuButton.style.setProperty('--rotation', '-45deg')
           aboutView.style.overflow = 'auto'
-          aboutContent.style.pointerEvents = 'auto'
           homeView.style.overflowY = 'hidden'
         }
       }
