@@ -100,6 +100,7 @@ export default {
       try {
         const { data } = await api.fetchCurrentlyPlaying()
         this.song = data
+        document.title = `Kolapo is listening to ${this.song.name} by ${this.song.artists[0].name}`
 
         this.$nextTick(() => {
           this.setAccentColor()
