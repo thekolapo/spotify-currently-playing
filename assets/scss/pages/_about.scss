@@ -1,7 +1,7 @@
 .about {
   --background-scale: 0;
   --height: 10rem;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   height: var(--height);
@@ -9,7 +9,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  // overflow-y: scroll;
+  overflow-y: scroll;
   z-index: 4;
 
   &::before {
@@ -41,6 +41,7 @@
     padding: 0 2rem 2rem;
     font-weight: 300;
     opacity: 0;
+    pointer-events: none;
     transform: translateY(var(--translate-y));
     transition: opacity var(--transition-time) linear 0.3s,
       transform calc(var(--transition-time) - 0.2s) $ease-out-expo 0.3s;

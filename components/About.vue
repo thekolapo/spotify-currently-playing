@@ -91,6 +91,7 @@ export default {
       const aboutView = this.$refs.about
       const menuButton = this.$refs.menuButton
       const aboutContent = this.$refs.aboutContent
+      const homeView = document.querySelector('.home')
 
       const handleMouseHover = () => {
         if (showMenu) return
@@ -118,6 +119,7 @@ export default {
           menuButton.style.removeProperty('--rotation')
           aboutView.style.overflow = 'hidden'
           aboutContent.style.pointerEvents = 'none'
+          homeView.style.overflowY = 'auto'
         } else {
           aboutContent.style.visibility = 'visible'
           aboutContent.style.opacity = 1
@@ -127,6 +129,7 @@ export default {
           menuButton.style.setProperty('--rotation', '-45deg')
           aboutView.style.overflow = 'auto'
           aboutContent.style.pointerEvents = 'auto'
+          homeView.style.overflowY = 'hidden'
         }
       }
 
