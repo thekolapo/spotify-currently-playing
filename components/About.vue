@@ -94,7 +94,6 @@ export default {
       const homeView = document.querySelector('.home')
 
       const handleMouseHover = () => {
-        if (showAboutView) return
         aboutView.style.setProperty('--height', '100vh')
         aboutView.style.setProperty('--background-scale', 0.12)
       }
@@ -133,7 +132,10 @@ export default {
         }
       }
 
-      this.$refs.menuButton.addEventListener('mouseover', handleMouseHover)
+      this.$refs.menuButton.addEventListener('mouseover', () => {
+        if (showAboutView) return
+        handleMouseHover()
+      })
       this.$refs.menuButton.addEventListener('mouseleave', handleMouseLeave)
       this.$refs.menuButton.addEventListener('click', handleMouseClick)
     },
