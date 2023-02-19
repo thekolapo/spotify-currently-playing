@@ -25,7 +25,9 @@
       <p>
         Hi, my name is Kolapo Oni, and I’m a Designer & Developer based in
         Lagos, Nigeria. You can learn more about me and my interests on my
-        <a href="" target="_blank" class="c-link">personal website</a>.
+        <a href="https://thekolapo.com/" target="_blank" class="c-link"
+          >personal website</a
+        >.
       </p>
       <p>
         This project was inspired by my love for music. It shows the song I’m
