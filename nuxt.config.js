@@ -58,8 +58,7 @@ export default {
   },
 
   env: {
-    refreshToken: process.env.REFRESH_TOKEN,
-    clientID: process.env.CLIENT_ID,
+    BASE_URL: process.env.BASE_URL,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
