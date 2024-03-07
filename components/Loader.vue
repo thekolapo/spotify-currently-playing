@@ -27,6 +27,10 @@ export default {
           author: 'Kolapo Oni',
         },
         {
+          quote: 'Music makes me feel 🌺 🌸',
+          author: 'Kolapo Oni',
+        },
+        {
           quote:
             'One good thing about music, when it hits you, you feel no pain. 🌺 🌼',
           author: 'Bob Marley',
